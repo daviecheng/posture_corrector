@@ -17,9 +17,11 @@
 2. In MATLAB, have 'getTrainingData.m' and 'getFeatures.m' in the environment.
 > Setup the circuit as shown below.
 <img src="https://user-images.githubusercontent.com/84931559/120691398-697d4580-c474-11eb-9fd0-e62b2ad93697.png" width="700">
+
 3. Run 'getTrainingData.m'
 4. The collected training data is stored in your workspace variable 'trainingData'. Copy the training data to a CSV file and manually input the label as 1 for slouching and 0 for non-slouching in the last column. My training data is included for reference.
 5. Continue to run 'getTrainingData.m' to gather training data.
+
 
 ## Export SEFR to C++
 1. Load 'sefr_ml' Python program.
@@ -29,7 +31,7 @@
 
 ## Deploy Classifier to Project
 1. Upload "posture" Arduino code to Arduino IDE.
-2. Include the SEFR .h file into the same folder as the "posture" Arduino code.
-
-3. Setup the circuit as shown below; then upload the code to Arduino Pro Mini board.
+2. Include the SEFR .h file into the same folder as the "posture" Arduino code
+3. Upload the code to Arduino Pro Mini board.
+4. The schematic for my project is below. I used a 300 mAH battery. The power switch and charging module are different than what I  used, but equivalent in function.
 <img src="https://user-images.githubusercontent.com/84931559/150036961-00be6f57-43ca-4354-8bac-74b3a17b2c29.JPG">
