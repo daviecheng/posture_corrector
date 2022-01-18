@@ -30,5 +30,6 @@
 ## Deploy Classifier to Project
 1. Upload "posture" Arduino code to Arduino IDE.
 2. Include the SEFR .h file into the same folder as the "posture" Arduino code.
+
 3. Setup the circuit as shown below; then upload the code to Arduino Pro Mini board.
-<img src="https://user-images.githubusercontent.com/84931559/120695492-76e8fe80-c479-11eb-82a4-1e4a17a5788e.png">
+<img src="https://user-images.githubusercontent.com/84931559/150036961-00be6f57-43ca-4354-8bac-74b3a17b2c29.JPG">
