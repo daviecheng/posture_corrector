@@ -18,7 +18,7 @@
 
 Setup the circuit as shown below.
 
-<img src="https://user-images.githubusercontent.com/84931559/120691398-697d4580-c474-11eb-9fd0-e62b2ad93697.png" width="700">
+<img src="https://user-images.githubusercontent.com/84931559/120691398-697d4580-c474-11eb-9fd0-e62b2ad93697.png" width="500">
 
 3. Run 'getTrainingData.m'
 4. The collected training data is stored in your workspace variable 'trainingData'. Copy the training data to a CSV file and manually input the label as 1 for slouching and 0 for non-slouching in the last column. My training data is included for reference.
@@ -36,5 +36,5 @@ Setup the circuit as shown below.
 2. Include the SEFR .h file into the same folder as the "posture" Arduino code
 3. Upload the code to Arduino Pro Mini board.
 4. The schematic for my project is below. I used a 300 mAH battery. The power switch and charging module are different than what I  used, but equivalent in function.
-<img src="https://user-images.githubusercontent.com/84931559/150038112-4ea1d3c6-2236-400d-b85c-bd8eabf97f7b.JPG">
+<img src="https://user-images.githubusercontent.com/84931559/150038112-4ea1d3c6-2236-400d-b85c-bd8eabf97f7b.JPG" width="500px">
 
