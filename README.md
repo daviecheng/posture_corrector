@@ -34,4 +34,5 @@
 2. Include the SEFR .h file into the same folder as the "posture" Arduino code
 3. Upload the code to Arduino Pro Mini board.
 4. The schematic for my project is below. I used a 300 mAH battery. The power switch and charging module are different than what I  used, but equivalent in function.
-<img src="https://user-images.githubusercontent.com/84931559/150036961-00be6f57-43ca-4354-8bac-74b3a17b2c29.JPG">
+<img src="https://user-images.githubusercontent.com/84931559/150038112-4ea1d3c6-2236-400d-b85c-bd8eabf97f7b.JPG">
+
