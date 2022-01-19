@@ -3,6 +3,9 @@
 ## Summary
 > Wearable device that notifies the user when they are slouching for 7 seconds or more.
 
+https://user-images.githubusercontent.com/84931559/150200347-10e6e395-f49e-42e1-8dff-40e93dd72a14.mp4
+> Note: You may need to turn up volume to hear alarm in the video.
+
 - Uses SEFR machine learning algorithm
 - 600 training data samples (300 for slouch, 300 for non-slouch)
 - Features of SEFR classifier include 
