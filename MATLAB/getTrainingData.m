@@ -1,6 +1,6 @@
 % Description: Program gets Training Data
 
-% Before running, upload the 'mpu6050_output' Arduino code to the Uno Board
+% Before running, upload the 'mpu' Arduino code to the Uno Board
 % Change the COM of this program to your own COM (line 30)
 % The sampling rate for training data can be changed on line 38
 % You may experience errors running the program; rerun it until it works.
