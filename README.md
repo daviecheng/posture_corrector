@@ -15,7 +15,9 @@
 ## Get Training Data
 1. Upload 'mpu' Arduino code to Uno board.
 2. In MATLAB, have 'getTrainingData.m' and 'getFeatures.m' in the environment.
-> Setup the circuit as shown below.
+
+Setup the circuit as shown below.
+
 <img src="https://user-images.githubusercontent.com/84931559/120691398-697d4580-c474-11eb-9fd0-e62b2ad93697.png" width="700">
 
 3. Run 'getTrainingData.m'
