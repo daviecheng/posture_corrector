@@ -4,7 +4,7 @@
 sequenceDiagram
     actor User
     participant Power as PowerModule
-    participant Manager as MotionManager
+    participant Manager as PostureManager
     participant SEFR as Classifier
     participant Buzzer as Alarm
 
