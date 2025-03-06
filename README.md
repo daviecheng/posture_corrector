@@ -1,44 +1,67 @@
-# Wearable_Posture_Corrector
+# Wearable Posture Corrector Device
 
 ## Summary
-> Wearable device that notifies the user when they are slouching for 7 seconds or more.
-
+> A wearable device that alerts the user after prolonged slouching.
 
 https://user-images.githubusercontent.com/84931559/156413828-600d1e9e-73e9-4acd-ada2-8e82b057e9b7.mp4
 > Note: You may need to turn up volume to hear alarm in the video.
 
-- Uses SEFR machine learning algorithm
-- 600 training data samples (300 for slouch, 300 for non-slouch)
-- Features of SEFR classifier include 
-  - Mean x, y, and z acceleration
-  - Mean x, y, and z RMS acceleration
-- Piezo to notify user (can be replaced with vibration motor for less noise).
-- 300 ms sampling interval
+## Context
+- This project utilizes a Scalable, Efficient, and Fast classifieR (SEFR) machine learning algorithm.
+  - Fast in both training and prediction while maintaining resource efficiency.
+  - Low-power consumption with minimal memory footprint, making it ideal for microcontroller applications.
+  - This project uses the `micromlgen` library from this [post](https://eloquentarduino.github.io/2020/07/sefr-a-fast-linear-time-classifier-for-ultra-low-power-devices/).
+- The classifier uses 600 training data samples (300 samples each for slouching and non-slouching)
+- Input features to the SEFR classifier 
+  - Mean acceleration along the X, Y, Z axes
+  - Mean RMS acceleration along the X, Y, Z axes
+- Device components
+  - ATmega328 MCU
+  - Lithium Battery Charging Board
+  - Pushbutton Power Switch 
+  - 3D printed case enclosure
+  - Piezo used as an alarm
 
-# Setup
-## Get Training Data
-1. Upload 'mpu' Arduino code to Uno board.
-2. In MATLAB, have 'getTrainingData.m' and 'getFeatures.m' in the environment.
+## Setup
+1. Extract training data for both slouching and non-slouching.
+2. Copy the training data to a .csv file and label the features as 1 for slouching and 0 for non-slouching.
+3. Run the `sefr_ml.py` Python script in `/scripts` with the training data .csv file to generate the C code for the SEFR classifier using the `micromlgen` library.
+4. Copy the output and save as a C header file to be included in the project.
+5. Use the header file and call the `predict()` function to make predictions using the trained classifier.
 
-Setup the circuit as shown below.
-
-<img src="https://user-images.githubusercontent.com/84931559/120691398-697d4580-c474-11eb-9fd0-e62b2ad93697.png" width="500">
-
-3. Run 'getTrainingData.m'
-4. The collected training data is stored in your workspace variable 'trainingData'. Copy the training data to a CSV file and manually input the label as 1 for slouching and 0 for non-slouching in the last column. My training data is included for reference.
-5. Continue to run 'getTrainingData.m' to gather training data.
-
-
-## Export SEFR to C++
-1. Load 'sefr_ml' Python program.
-2. Replace the path with your CSV path that contains your training data.
-3. Run the Python script and the output is your SEFR classifier code in C++. 
-4. Save the output code as a .h file.
-
-## Deploy Classifier to Project
-1. Upload "posture" Arduino code to Arduino IDE.
-2. Include the SEFR .h file into the same folder as the "posture" Arduino code
-3. Upload the code to Arduino Pro Mini board.
-4. The schematic for my project is below. I used a 300 mAH battery. The power switch and charging module are different than what I  used, but equivalent in function.
+## Schematic
 <img src="https://user-images.githubusercontent.com/84931559/150038112-4ea1d3c6-2236-400d-b85c-bd8eabf97f7b.JPG" width="500px">
 
+## Sequence Diagram
+> The device is set to alert the user after approximately 7 seconds of continuous slouching. This setting can be adjusted in the code according to the user's preferences.
+```mermaid
+sequenceDiagram
+    actor User
+    participant Power as PowerModule
+    participant Manager as PostureManager
+    participant SEFR as Classifier
+    participant Buzzer as Alarm
+
+    User->>Power : User turns on the device
+    Power->>Manager : Setup MPU sensor
+    loop Every 2.4 seconds
+        User->>Manager : Collects 10 Motion Samples
+        Manager->>Manager : Feature extraction
+        Manager->>SEFR: Predict
+        SEFR->>Manager: Result
+        alt Slouching
+            Manager->>Manager: Increment Conesecutive Slouches
+            alt Consecutive slouches >= 3
+                Manager->>Buzzer: Sound Alarm
+            end
+        else Else
+            Manager->>Manager : Reset consecutive slouches
+        end
+
+        # Power off flow
+        alt Shutdown event
+            User->>Power : User turns off the device
+        end
+
+    end
+```

@@ -96,14 +96,14 @@ void PostureManager::read_mpu_accelerometer()
     Wire.endTransmission();
     Wire.requestFrom(0x68,6);            //Request Accel Registers (3B - 40)
     while(Wire.available() < 6);
-    long accelX = Wire.read()<<8|Wire.read(); //Store first two bytes into accelX
-    long accelY = Wire.read()<<8|Wire.read(); //Store middle two bytes into accelY
-    long accelZ = Wire.read()<<8|Wire.read(); //Store last two bytes into accelZ
+    long x_acceleration = Wire.read()<<8|Wire.read(); //Store first two bytes into x_acceleration
+    long y_acceleration = Wire.read()<<8|Wire.read(); //Store middle two bytes into y_acceleration
+    long z_acceleration = Wire.read()<<8|Wire.read(); //Store last two bytes into z_acceleration
   
-    // accel values in [g]
-    _mpu_accelerometer_data[0] = accelX / 16384.0; 
-    _mpu_accelerometer_data[1] = accelY / 16384.0; 
-    _mpu_accelerometer_data[2] = accelZ / 16384.0;
+    // acceleration values in [g]
+    _mpu_accelerometer_data[0] = x_acceleration / 16384.0; 
+    _mpu_accelerometer_data[1] = y_acceleration / 16384.0; 
+    _mpu_accelerometer_data[2] = z_acceleration / 16384.0;
 }
 
 bool PostureManager::predict_slouch_status()
