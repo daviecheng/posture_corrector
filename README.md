@@ -3,12 +3,7 @@
 ## Summary
 > A wearable device that alerts the user after prolonged slouching.
 
-<video controls>
-  <source src="images/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-> Note: You may need to turn up volume to hear alarm in the video.
+Video demonstration is in my GitHub page [here](https://daviecheng.github.io/posture.html)
 
 ## Context
 - This project utilizes a Scalable, Efficient, and Fast classifieR (SEFR) machine learning algorithm.
