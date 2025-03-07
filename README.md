@@ -3,7 +3,11 @@
 ## Summary
 > A wearable device that alerts the user after prolonged slouching.
 
-https://user-images.githubusercontent.com/84931559/156413828-600d1e9e-73e9-4acd-ada2-8e82b057e9b7.mp4
+<video controls>
+  <source src="images/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 > Note: You may need to turn up volume to hear alarm in the video.
 
 ## Context
@@ -30,7 +34,7 @@ https://user-images.githubusercontent.com/84931559/156413828-600d1e9e-73e9-4acd-
 5. Use the header file and call the `predict()` function to make predictions using the trained classifier.
 
 ## Schematic
-<img src="https://user-images.githubusercontent.com/84931559/150038112-4ea1d3c6-2236-400d-b85c-bd8eabf97f7b.JPG" width="500px">
+<img src="images/schematic.jpg" width="500px">
 
 ## Sequence Diagram
 > The device is set to alert the user after approximately 7 seconds of continuous slouching. This setting can be adjusted in the code according to the user's preferences.
